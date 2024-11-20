@@ -1,0 +1,155 @@
+.movies {
+	$self: &;
+	display: flex;
+	flex-flow: column nowrap;
+	touch-action: pan-y;
+
+	&_left {
+
+		#{$self}__item {
+			transform: translateX(-100%) scale(0.9);
+		}
+
+		#{$self}__buttons {
+			justify-content: flex-start;
+		}
+	}
+
+	&__body {
+		position: relative;
+		@include aspect-ratio(1.38, 1.0);
+		max-width: 100%;
+		margin-bottom: 40px;
+		
+		@include media('<=xlg') {
+			margin-bottom: 30px;
+		}
+		
+		@include media('<=md') {
+			margin-bottom: 20px;
+		}
+		
+		@include media('<=sm') {
+			margin: 0;
+			order: 1
+		}
+	}
+
+	&__play {
+		@extend %reset-button;
+		border-radius: 1000px;
+		height: 110px;
+		width: 110px;
+		background-color: rgba(255, 255, 255, 0.80);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: transform 0.3s;
+		z-index: 2;
+		
+		@include media('<=md') {
+			height: 80px;
+			width: 80px;
+		}
+		
+		@include media('<=xxs') {
+			height: 60px;
+			width: 60px;
+		}
+
+		&:hover {
+			transform: translate(-50%, -50%) scale(1.1);
+		}
+
+		svg {
+			fill: #ABDAF4;
+			height: 60%;
+			width: 45%;
+			margin-left: 10px;
+		}
+	}
+
+	&__item {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		overflow: hidden;
+		border-radius: 24px;
+		transform: translateX(100%) scale(0.9);
+		transition: transform 0.3s;
+		
+		@include media('<=xlg') {
+			border-radius: 20px;
+		}
+		
+		@include media('<=lg') {
+			border-radius: 16px;
+		}
+
+		&.active {
+			transform: none;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 30px;
+		justify-content: flex-end;
+		
+		@include media('<=sm') {
+			justify-content: flex-start;
+			margin-bottom: 10px;
+			padding-left: 10px;
+			gap: 20px;
+		}
+		
+		@include media('<=xxs') {
+			margin-bottom: 5px;
+		}
+	}
+	
+	&__button {
+		@extend %reset-button;
+		font-family: inherit;
+		font-size: 35px;
+		color: #AEAEAE;
+		
+		@include media('<=xxlg') {
+			font-size: 30px;
+		}
+		
+		@include media('<=xlg') {
+			font-size: 26px;
+		}
+		
+		@include media('<=lg') {
+			font-size: 22px;
+		}
+		
+		@include media('<=md') {
+			font-size: 20px;
+		}
+		
+		@include media('<=sm') {
+			font-size: 18px;
+		}
+		
+		@include media('<=xs') {
+			font-size: 16px;
+		}
+
+		&.active {
+			color: #49B7F2;
+		}
+	}
+}

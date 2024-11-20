@@ -1,0 +1,124 @@
+.modal {
+	$self: &;
+	box-sizing: border-box;
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	height: 100dvh;
+	background-color: rgba(0, 0, 0, 0.9);
+	backdrop-filter: blur(3px);
+	padding: var(--gap);
+	overflow-y: auto;
+	@keyframes slideInDown {
+		from { opacity: 0; transform: translateY(-1000px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+	@keyframes show_fade { from { opacity: 0; } to { opacity: 1; }}
+
+	&[style*="display: block"] {
+		display: flex !important;
+	}
+
+	&_order {
+		
+		#{$self}__body {
+			max-width: 1280px;
+			
+			@include media('<=md') {
+				max-width: 600px;
+			}
+			
+			@include media('<=xxs') {
+				padding: 55px 30px 65px;
+			}
+			
+			@include media('<=xxxs') {
+				padding: 55px 20px 65px;
+			}
+		}
+	}
+
+	&_movie {
+			
+		@include media('<=xxs') {
+			padding: var(--gap) 0;
+		}
+	
+		#{$self}__body {
+			max-width: 1100px;
+			padding: 0 ;
+			border-radius: 10px;
+			overflow: hidden;
+			background-color: #111;
+			
+			@include media('<=xxs') {
+				border-radius: 0;
+			}
+		}
+		
+		#{$self}__content {
+			@include aspect-ratio(1.777, 1);
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__hidden {
+		display: none;
+	}
+	
+	&__close {
+		position: absolute;
+		top: 15px; right: 15px;
+		cursor: pointer;
+		width: 36px;
+		height: 36px;
+		z-index: 2;
+		background: svg-url('<svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M26.7423 0.961156C27.1284 1.35599 27.1214 1.98911 26.7266 2.37528L2.67187 25.902C2.27704 26.2882 1.64392 26.2812 1.25775 25.8864C0.871581 25.4915 0.878606 24.8584 1.27344 24.4722L25.3281 0.945466C25.723 0.559298 26.3561 0.566323 26.7423 0.961156Z" fill="#111111"/><path fill-rule="evenodd" clip-rule="evenodd" d="M1.25775 0.961156C1.64392 0.566323 2.27704 0.559298 2.67187 0.945466L26.7266 24.4722C27.1214 24.8584 27.1284 25.4915 26.7423 25.8864C26.3561 26.2812 25.723 26.2882 25.3281 25.902L1.27344 2.37528C0.878606 1.98911 0.871581 1.35599 1.25775 0.961156Z" fill="#111111"/></svg>') center / 18px 18px no-repeat rgba(255, 255, 255, 0.5);
+		border-radius: 1000px;
+		transition: background-color 0.3s;
+		
+		@include media('<=xxs') {
+			width: 30px;
+			height: 30px;
+			background-size: 14px 14px;
+			top: 8px; right: 8px;
+		}
+	}
+
+	&__body {
+		animation: slideInDown 0.7s ease both;
+		box-sizing: border-box;
+		position: relative;
+		background-color: #fff;
+		border-radius: 4px;
+		margin: auto;
+		padding: 40px;
+		width: 100%;
+		max-width: 1000px;
+		box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.07);
+	
+		@include media('<=xxs') {
+			padding: 30px;
+		}
+	}
+	
+	&__content {
+		min-height: 200px;
+		
+		@include media('<=xxs') {
+			min-height: 140px;
+		}
+		
+		@include media('<=xxxs') {
+
+		}
+	}
+}

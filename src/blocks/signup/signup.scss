@@ -1,0 +1,89 @@
+.signup {
+	$self: &;
+	background-color: #870002;
+	overflow: hidden;
+
+	@include media('<=xs') {
+		display: none;
+	}
+	
+	&__inner {
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		padding: 60px 200px 40px;
+		position: relative;
+		
+		@include media('<=sm') {
+			padding: 40px 100px;
+		}
+
+		&.container {
+			max-width: 1185px;
+		}
+
+		&::before, &::after {
+			display: block;
+			content: '';
+			position: absolute;
+			z-index: 1;
+			width: 240px;
+			height: 250px;
+			background: url('#{$images-path}twist-arrow-2.webp') center / contain no-repeat transparent;
+			
+			@include media('<=lg') {
+				width: 190px;
+				height: 200px;
+			}
+			
+			@include media('<=sm') {
+				width: 150px;
+				height: 160px;
+			}
+		}
+
+		&::before {
+			left: 0;
+			top: 30px;
+			
+			@include media('<=md') {
+			}
+			
+			@include media('<=sm') {
+				top: 0;
+			}
+		}
+
+		&::after {
+			right: 0;
+			bottom: 20px;
+			transform: rotate(165deg);
+			
+			@include media('<=md') {
+			}
+			
+			@include media('<=sm') {
+				bottom: 20px;
+			}
+		}
+	}
+
+	&__title {
+		display: block;
+		text-align: center;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+		font-size: 100px;
+		@include range(100px, 40px, 1280px, 780px);
+	}
+	
+	&__text {
+		display: block;
+		font-weight: 300;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 29px;
+		@include range(29px, 16px, 1280px, 780px);
+	}
+}

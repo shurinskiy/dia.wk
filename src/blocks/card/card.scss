@@ -1,0 +1,62 @@
+.card {
+	$self: &;
+	display: flex;
+	flex-flow: column nowrap;
+
+	&__image {
+		overflow: hidden;
+		border-radius: 24px 24px 0 0;
+		
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+	
+	&__body {
+		margin: 0 auto;
+		box-sizing: border-box;
+		width: calc(100% - 52px);
+		background-color: #CCEEFF;
+		min-height: 300px;
+		padding: 30px 15px 20px;
+		border-radius: 0 0 24px 24px;
+		margin-top: -50px;
+		position: relative;
+		z-index: 1;
+		flex-grow: 1;
+		
+		@include media('<=lg') {
+			width: calc(100% - 30px);
+		}
+		
+		@include media('<=xs') {
+			width: calc(100% - 52px);
+		}
+		
+		@include media('<=xxs') {
+			width: calc(100% - 30px);
+		}
+	}
+
+	&__name {
+		color: #870002;
+		font-size: 31px;
+		text-align: center;
+		margin-bottom: 20px;
+		
+		@include media('<=lg') {
+			// font-size: 26px;
+		}
+	}
+	
+	&__position {
+		text-align: center;
+		font-size: 20px;
+		font-weight: 300;
+		
+		@include media('<=lg') {
+			// font-size: 18px;
+		}
+	}
+}

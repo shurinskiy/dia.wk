@@ -1,0 +1,89 @@
+.getin {
+	$self: &;
+	padding-top: 30px;
+	margin-bottom: 140px;
+		
+	@include media('<=xs') {
+		display: none;
+	}
+
+	&__inner {
+		position: relative;
+		padding: 0 200px;
+		
+		@include media('<=md') {
+			padding: 0 160px;
+		}
+		
+		@include media('<=sm') {
+			padding: 0 130px;
+		}
+
+		&.container {
+			max-width: 1040px;
+		}
+
+		&::before, &::after {
+			display: block;
+			content: '';
+			position: absolute;
+			z-index: 1;
+			width: 200px;
+			height: 280px;
+			background: url('#{$images-path}twist-arrow-1.webp') center / contain no-repeat transparent;
+			
+			@include media('<=md') {
+				width: 160px;
+				height: 240px;
+			}
+			
+			@include media('<=sm') {
+				width: 120px;
+				height: 200px;
+			}
+		}
+
+		&::before {
+			left: 0;
+			top: -50px;
+			
+			@include media('<=md') {
+				top: -30px;
+			}
+			
+			@include media('<=sm') {
+				top: 0;
+			}
+		}
+
+		&::after {
+			right: 0;
+			bottom: -80px;
+			transform: rotate(190deg);
+			
+			@include media('<=md') {
+				bottom: -50px;
+			}
+			
+			@include media('<=sm') {
+				bottom: -20px;
+			}
+		}
+	}
+
+	&__text {
+		font-weight: 300;
+		text-align: center;
+		margin-bottom: 50px;
+		font-size: 29px;
+		@include range(29px, 24px, 1440px, 960px);
+	}
+
+	&__button {
+
+		&.button {
+			@include range(35px, 23px, 1920px, 480px);
+			@include range(90px, 72px, 1920px, 480px, 'height');
+		}
+	}
+}

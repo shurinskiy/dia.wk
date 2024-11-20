@@ -1,0 +1,103 @@
+.hero {
+	$self: &;
+	background: url('#{$images-path}hero-image-bg.webp') bottom center / auto 100% no-repeat, linear-gradient(90deg, #89d6fd 40%, #b6ddf3 60%);
+	margin-bottom: 85px;
+	
+	@include media('<=xxxlg') {
+		background-position: bottom right;
+	}
+	
+	@include media('<=sm') {
+		background: url('#{$images-path}hero-image-bg-mobile.webp') bottom right / auto 100% no-repeat #aedaf3;
+		margin-bottom: 50px;
+	}
+	
+	@include media('<=xxs') {
+		background-size: cover;
+		margin-bottom: 20px;
+	}
+
+	&__inner {
+		padding: 20px 0;
+		display: flex;
+		align-items: center;
+		height: 745px;
+		@include range(745px, 500px, 1920px, 780px, 'height');
+		
+		@include media('<=sm') {
+			align-items: flex-start;
+			height: 730px;
+		}
+	}
+
+	&__body {
+		max-width: 880px;
+		@include range(880px, 520px, 1920px, 780px, 'max-width');
+
+		@include media('<=sm') {
+			max-width: none;
+			width: 100%;
+		}
+	}
+
+	&__title {
+		color: #000D33;
+		font-weight: 300;
+		text-align: center;
+		margin-bottom: 40px;
+		font-size: 55px;
+		@include range(55px, 23px, 1920px, 480px);
+		
+		@include media('<=sm') {
+			margin-bottom: 30px;
+		}
+		
+		@include media('<=xxs') {
+			margin-bottom: 15px;
+		}
+	}
+	
+	&__about {
+		font-weight: 600;
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 45px;
+		letter-spacing: 0.005em;
+		line-height: 1.25;
+		font-size: 55px;
+		@include range(55px, 24px, 1920px, 480px);
+		
+		@include media('<=sm') {
+			margin-bottom: 30px;
+		}
+		
+		@include media('<=xxs') {
+			line-height: 1.15;
+		}
+		
+		span {
+			font-weight: 700;
+			color: #870002;
+		}
+	}
+	
+	&__text {
+		font-weight: 300;
+		text-align: center;
+		margin-bottom: 30px;
+		font-size: 29px;
+		@include range(29px, 16px, 1920px, 480px);
+		
+		@include media('<=sm') {
+			margin-bottom: 10px;
+		}
+	}
+	
+	&__button {
+
+		&.button {
+			@include range(35px, 23px, 1920px, 480px);
+			@include range(90px, 72px, 1920px, 480px, 'height');
+		}
+	}
+}

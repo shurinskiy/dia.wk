@@ -1,0 +1,87 @@
+.speakers {
+	$self: &;
+	margin-bottom: 120px;
+	
+	@include media('<=xs') {
+		margin-bottom: 70px;
+	}
+
+	&__inner {
+		&.container {
+			@include media('<=lg') {
+				max-width: 700px;
+			}
+
+			@include media('<=xs') {
+				max-width: 360px;
+			}
+		}
+	}
+	
+	&__title {
+		font-weight: 600;
+		color: #000D33;
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 85px;
+		font-size: 58px;
+		@include range(58px, 26px, 1680px, 480px);
+		
+		@include media('<=xs') {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__slider {
+
+	}
+	
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 24px;
+		
+		@include media('<=xlg') {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include media('<=lg') {
+			display: flex;
+			grid-gap: 0;
+			margin-bottom: 50px;
+		}
+	}
+
+	&__item {
+		grid-column: span 1;
+		height: auto;
+	}
+
+	&__dots {
+		display: none;
+		gap: 10px;
+		justify-content: space-between;
+		max-width: 250px;
+		margin: 0 auto;
+
+		@include media('<=lg') {
+			display: flex;
+		}
+	}
+
+	&__dot {
+		background-color: #AEAEAE;
+		transition: background-color 0.4s;
+		border-radius: 100px;
+		height: 11px;
+		width: 11px;
+		
+		@include media('<=lg') {
+
+		}
+
+		&.active {
+			background-color: #49B7F2;
+		}
+	}
+}

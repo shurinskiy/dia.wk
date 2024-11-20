@@ -1,0 +1,19 @@
+.button {
+	$self: &;
+	@extend %reset-button;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	background-color: #870002;
+	font-weight: 700;
+	line-height: 1.0;
+	text-transform: uppercase;
+	border-radius: 1000px;
+	padding: 5px 20px;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 385px;
+	height: 90px;
+	font-size: 35px;
+}

@@ -1,0 +1,116 @@
+@import "lib/additional.scss"; 
+@include reset(); 
+
+// Browsersync mark
+#__bs_notify__ { 
+	background-color: rgba(27, 32, 50, 0.4) !important;
+	color: rgba(250, 250, 250, 0.6) !important;
+}
+
+// Include breakpoints badge
+// body { @include screen-media(); }
+
+// Import media-query helper
+@import "../../node_modules/include-media/dist/_include-media.scss";
+
+$breakpoints: (
+	'xxxs': 360px,
+	'xxs': 480px,
+	'xs': 640px,
+	'sm': 780px,
+	'md': 960px,
+	'lg': 1100px,
+	'xlg': 1280px,
+	'xxlg': 1440px,
+	'xxxlg': 1680px,
+	'xxxxlg': 1920px
+);
+
+
+// @include font-face("Montserrat-ExtraLight", "MR", 200);
+// @include font-face("Montserrat-ExtraBold", "MR", 800);
+@include font-face("MyriadPro-Semibold", "MR", 600);
+@include font-face("MyriadPro-Regular", "MR", 400);
+// @include font-face("Montserrat-Medium", "MR", 500);
+@include font-face("MyriadPro-Light", "MR", 300);
+@include font-face("MyriadPro-Black", "MR", 900);
+@include font-face("MyriadPro-Bold", "MR", 700);
+// @include font-face("Montserrat-Thin", "MR", 100);
+
+@import "../../node_modules/swiper/swiper";
+
+// Import BEM blocks scss
+@import "../blocks/**/*.scss";
+
+:root {
+	--size: #{$basesize}px;
+	--container: 1520px;
+	--gap: 24px;
+	
+	@include media('<=xs') {
+		--gap: 16px;
+	}
+}
+
+
+body, html {
+	// scrollbar-gutter: stable;
+	box-sizing: border-box;
+	background-color: #fafafa;
+	font-size: var(--size);
+	font-family: "MR", sans-serif;
+	line-height: 1.2;
+	font-weight: 400;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	
+	@include media('>xs') {
+		scroll-behavior: smooth;	
+	}
+}
+
+body {
+	
+	@include media('>xs') {
+		padding-top: 90px;
+	}
+	
+	&.underlay {
+		&::before {
+			display: block;
+			box-sizing: border-box;
+			content: '';
+			position: fixed;
+			z-index: 3;
+			top: 0px; left: 0px;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			transition: opacity 0.4s;
+			animation: showItem 0.4s;
+		}
+	
+		&_closing::before {
+			opacity: 0;
+		}
+	}
+}
+
+.footer {
+	flex: 0 0 auto; 
+	margin-top: auto; 
+}
+
+.sprite {
+	display: none;
+}
+
+p { margin-bottom: 10px; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+@keyframes showItem {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
